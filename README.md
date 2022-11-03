@@ -1,8 +1,8 @@
-# use-package-ensure-system-package
+# use-package-oreo
 
 You’re using [`use-package`](https://github.com/jwiegley/use-package)
 to manage your Emacs environment. Well played. Maybe you then want to
-ensure related system binary packages exist along side of these
+ensure related  binary packages exist along side of these
 package/feature declarations? Oh nice, me too.
 
 ## Setup
@@ -16,7 +16,7 @@ exist. [`exec-path-from-shell`](https://github.com/purcell/exec-path-from-shell)
 is a good way to do this.
 
 * This package leverages
-  [`system-packages`](https://github.com/jabranham/system-packages) to
+  [`oreo-packages`](https://github.com/syvlorg/oreo-packages) to
   provide the default install behavior for different systems. If you
   need to customize this beforehand, you may.
 
@@ -25,7 +25,7 @@ is a good way to do this.
 Note: This is only available on [`MELPA`](https://melpa.org).
 
 ``` emacs-lisp
-(use-package use-package-ensure-system-package
+(use-package use-package-oreo
   :ensure t)
 ```
 
@@ -36,7 +36,7 @@ Here’s an example:
 ``` emacs-lisp
 (use-package rg
   :ensure t
-  :ensure-system-package rg
+  :oreo rg
   :chords (":G" . rg-projecet))
 ```
 
@@ -50,10 +50,10 @@ Good default stuff. What if you want to customize the install command?
 ``` emacs-lisp
 (use-package tern
   :ensure t
-  :ensure-system-package (tern . "npm i -g tern"))
+  :oreo (tern . "npm i -g tern"))
 ```
 
-`:ensure-system-package` can take a cons. In that case, its `cdr`
+`:oreo` can take a cons. In that case, its `cdr`
 should be a string that will get piped to `(async-shell-command)` to
 install the darn thing if it doesn’t exist.
 
@@ -61,7 +61,7 @@ Also you may also pass in a list of cons-es in the same format:
 
 ``` emacs-lisp
 (use-package ruby-mode
-  :ensure-system-package
+  :oreo
   ((rubocop     . "gem install rubocop")
    (ruby-lint   . "gem install ruby-lint")
    (ripper-tags . "gem install ripper-tags")
