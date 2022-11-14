@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-14 Mon 05:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jeet Ray" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/primary/syvl.css" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.ico" sizes="any" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.svg" />
+<link rel="manifest" href="https://combinatronics.io/sylvorg/settings/main/manifest.json" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/highlight/paraiso-dark.min.css" />
+<script src="https://combinatronics.io/sylvorg/settings/main/src/scripts/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<div class="header">
+<h1>We Are Syvlorg.</h1>
+<a href="">About Me</a>
+<a href="">About This Website</a>
+<a href="">About Syvlorg</a>
+<a href="https://resume.syvl.org">Résumé</a>
+<a href="https://index.syvl.org">Index</a>
+</div>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#use-package-oreo">use-package-oreo</a>
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-use-package-oreo" class="outline-2">
+<h2 id="use-package-oreo">use-package-oreo</h2>
+<div class="outline-text-2" id="text-use-package-oreo">
+<p>
+You're using <a href="https://github.com/jwiegley/use-package"><code>use-package</code></a>
+to manage your Emacs environment. Well played. Maybe you then want to
+ensure related binary packages exist along side of these package/feature
+declarations? Oh nice, me too.
+</p>
+</div>
+
+<div id="outline-container-setup" class="outline-3">
+<h3 id="setup">Setup</h3>
+<div class="outline-text-3" id="text-setup">
+<ul class="org-ul">
+<li>Obviously you need to be using
+<a href="https://github.com/jwiegley/use-package"><code>use-package</code></a>.</li>
+
+<li>Make sure your <code>exec-path</code> is cognisant of all binary package names
+that you would like to ensure exist.
+<a href="https://github.com/purcell/exec-path-from-shell"><code>exec-path-from-shell</code></a>
+is a good way to do this.</li>
+
+<li>This package leverages
+<a href="https://github.com/syvlorg/oreo-packages"><code>oreo-packages</code></a> to
+provide the default install behavior for different systems. If you
+need to customize this beforehand, you may.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-install" class="outline-3">
+<h3 id="install">Install</h3>
+<div class="outline-text-3" id="text-install">
+<p>
+Note: This is only available on <a href="https://melpa.org"><code>MELPA</code></a>.
+</p>
+
+<pre class="example" id="org11703a4">
+  (use-package use-package-oreo
+    :ensure t)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-usage" class="outline-3">
+<h3 id="usage">Usage</h3>
+<div class="outline-text-3" id="text-usage">
+<p>
+Here's an example:
+</p>
+
+<pre class="example" id="org9a0d9ed">
+  (use-package rg
+    :ensure t
+    :oreo rg
+    :chords (":G" . rg-projecet))
+</pre>
+
+<p>
+This will expect a global binary package to exist called <code>rg</code>. If it
+does not, it will use your system package manager to attempt an install
+of a binary by the same name asyncronously. For example, for most
+<code>macOS</code> users it would call: <code>brew install rg</code>.
+</p>
+
+<p>
+Good default stuff. What if you want to customize the install command?
+</p>
+
+<pre class="example" id="org7e2dfb0">
+  (use-package tern
+    :ensure t
+    :oreo (tern . "npm i -g tern"))
+</pre>
+
+<p>
+<code>:oreo</code> can take a cons. In that case, its <code>cdr</code> should be a string that
+will get piped to <code>(async-shell-command)</code> to install the darn thing if
+it doesn't exist.
+</p>
+
+<p>
+Also you may also pass in a list of cons-es in the same format:
+</p>
+
+<pre class="example" id="org17ea787">
+  (use-package ruby-mode
+    :oreo
+    ((rubocop     . "gem install rubocop")
+     (ruby-lint   . "gem install ruby-lint")
+     (ripper-tags . "gem install ripper-tags")
+     (pry         . "gem install pry")))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-roadmap" class="outline-3">
+<h3 id="roadmap">Roadmap</h3>
+<div class="outline-text-3" id="text-roadmap">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Better compatibility with the <code>:defer</code> and <code>:defer-install</code>
+keywords.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jeet Ray</p>
+<p class="date">Created: 2022-11-14 Mon 05:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
