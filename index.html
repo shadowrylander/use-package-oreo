@@ -3,18 +3,18 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-14 Mon 05:52 -->
+<!-- 2023-09-04 Mon 12:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Jeet Ray" />
-<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/primary/syvl.css" />
-<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.ico" sizes="any" />
-<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.svg" />
-<link rel="manifest" href="https://combinatronics.io/sylvorg/settings/main/manifest.json" />
-<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/highlight/paraiso-dark.min.css" />
-<script src="https://combinatronics.io/sylvorg/settings/main/src/scripts/highlight/highlight.min.js"></script>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/bundle/main/src/styles/primary/syvl.css" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/bundle/main/src/icons/favicons/shiny-zigzagoon-galar.ico" sizes="any" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/bundle/main/src/icons/favicons/shiny-zigzagoon-galar.svg" />
+<link rel="manifest" href="https://combinatronics.io/sylvorg/bundle/main/manifest.json" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/bundle/main/src/styles/highlight/paraiso-dark.min.css" />
+<script src="https://combinatronics.io/sylvorg/bundle/main/src/scripts/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 <div class="header">
 <h1>We Are Syvlorg.</h1>
@@ -24,34 +24,12 @@
 <a href="https://resume.syvl.org">Résumé</a>
 <a href="https://index.syvl.org">Index</a>
 </div>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
-<div id="table-of-contents">
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#use-package-oreo">use-package-oreo</a>
 <ul>
@@ -103,7 +81,7 @@ need to customize this beforehand, you may.</li>
 Note: This is only available on <a href="https://melpa.org"><code>MELPA</code></a>.
 </p>
 
-<pre class="example" id="org11703a4">
+<pre class="example" id="org2bd77f9">
   (use-package use-package-oreo
     :ensure t)
 </pre>
@@ -117,7 +95,7 @@ Note: This is only available on <a href="https://melpa.org"><code>MELPA</code></
 Here's an example:
 </p>
 
-<pre class="example" id="org9a0d9ed">
+<pre class="example" id="org3fb60f8">
   (use-package rg
     :ensure t
     :oreo rg
@@ -135,7 +113,7 @@ of a binary by the same name asyncronously. For example, for most
 Good default stuff. What if you want to customize the install command?
 </p>
 
-<pre class="example" id="org7e2dfb0">
+<pre class="example" id="orgc954575">
   (use-package tern
     :ensure t
     :oreo (tern . "npm i -g tern"))
@@ -151,7 +129,7 @@ it doesn't exist.
 Also you may also pass in a list of cons-es in the same format:
 </p>
 
-<pre class="example" id="org17ea787">
+<pre class="example" id="orgeb0af87">
   (use-package ruby-mode
     :oreo
     ((rubocop     . "gem install rubocop")
@@ -175,7 +153,7 @@ keywords.</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jeet Ray</p>
-<p class="date">Created: 2022-11-14 Mon 05:52</p>
+<p class="date">Created: 2023-09-04 Mon 12:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
